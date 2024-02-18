@@ -1,0 +1,33 @@
+{C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DATA_BUFFERING_SYSTEM
+-- Compiling architecture behaviour of DATA_BUFFERING_SYSTEM
+
+} {} {}} {C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/FIFO_BLOCK.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/FIFO_BLOCK.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity FIFO_BLOCK
+-- Compiling architecture behaviour of FIFO_BLOCK
+
+} {} {}} {C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM_TB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM_TB.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DATA_BUFFERING_SYSTEM_TB
+-- Compiling architecture bh of DATA_BUFFERING_SYSTEM_TB
+
+} {} {}}

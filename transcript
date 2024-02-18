@@ -1,0 +1,42 @@
+# Compile of FIFO_BLOCK.vhd was successful.
+# Compile of DATA_BUFFERING_SYSTEM.vhd was successful.
+# Compile of DATA_BUFFERING_SYSTEM_TB.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.data_buffering_system_tb
+# vsim -gui work.data_buffering_system_tb 
+# Start time: 11:56:01 on Mar 21,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.data_buffering_system_tb(bh)
+# Loading ieee.numeric_std(body)
+# Loading work.data_buffering_system(behaviour)
+# ** Error: (vsim-3732) C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM_TB.vhd(69): No default binding for component instance 'uut'.
+#    The following component port is not on the entity:
+#           start_empty
+#    Time: 0 ps  Iteration: 0  Instance: /data_buffering_system_tb/uut File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM.vhd
+# Loading work.fifo_block(behaviour)
+# Error loading design
+# End time: 11:56:01 on Mar 21,2021, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim -gui work.data_buffering_system_tb
+# vsim -gui work.data_buffering_system_tb 
+# Start time: 11:57:23 on Mar 21,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.data_buffering_system_tb(bh)
+# Loading ieee.numeric_std(body)
+# Loading work.data_buffering_system(behaviour)
+# ** Error: (vsim-3732) C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM_TB.vhd(69): No default binding for component instance 'uut'.
+#    The following component port is not on the entity:
+#           start_empty
+#    Time: 0 ps  Iteration: 0  Instance: /data_buffering_system_tb/uut File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM/DATA_BUFFERING_SYSTEM.vhd
+# Loading work.fifo_block(behaviour)
+# Error loading design
+# End time: 11:57:23 on Mar 21,2021, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

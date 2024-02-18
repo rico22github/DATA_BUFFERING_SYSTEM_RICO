@@ -1,0 +1,590 @@
+Analysis & Synthesis report for DATA_BUFFERING_SYSTEM
+Wed Mar 24 15:09:35 2021
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Mar 24 15:09:35 2021       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; DATA_BUFFERING_SYSTEM                       ;
+; Top-level Entity Name              ; DATA_BUFFERING_SYSTEM                       ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 493                                         ;
+;     Total combinational functions  ; 301                                         ;
+;     Dedicated logic registers      ; 243                                         ;
+; Total registers                    ; 243                                         ;
+; Total pins                         ; 25                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                    ;
++------------------------------------------------------------------+-----------------------+-----------------------+
+; Option                                                           ; Setting               ; Default Value         ;
++------------------------------------------------------------------+-----------------------+-----------------------+
+; Device                                                           ; 10M50DAF484C7G        ;                       ;
+; Top-level entity name                                            ; DATA_BUFFERING_SYSTEM ; DATA_BUFFERING_SYSTEM ;
+; Family name                                                      ; MAX 10                ; Cyclone V             ;
+; Use smart compilation                                            ; Off                   ; Off                   ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                    ; On                    ;
+; Enable compact report table                                      ; Off                   ; Off                   ;
+; Restructure Multiplexers                                         ; Auto                  ; Auto                  ;
+; Create Debugging Nodes for IP Cores                              ; Off                   ; Off                   ;
+; Preserve fewer node names                                        ; On                    ; On                    ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                ; Enable                ;
+; Verilog Version                                                  ; Verilog_2001          ; Verilog_2001          ;
+; VHDL Version                                                     ; VHDL_1993             ; VHDL_1993             ;
+; State Machine Processing                                         ; Auto                  ; Auto                  ;
+; Safe State Machine                                               ; Off                   ; Off                   ;
+; Extract Verilog State Machines                                   ; On                    ; On                    ;
+; Extract VHDL State Machines                                      ; On                    ; On                    ;
+; Ignore Verilog initial constructs                                ; Off                   ; Off                   ;
+; Iteration limit for constant Verilog loops                       ; 5000                  ; 5000                  ;
+; Iteration limit for non-constant Verilog loops                   ; 250                   ; 250                   ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                    ; On                    ;
+; Infer RAMs from Raw Logic                                        ; On                    ; On                    ;
+; Parallel Synthesis                                               ; On                    ; On                    ;
+; DSP Block Balancing                                              ; Auto                  ; Auto                  ;
+; NOT Gate Push-Back                                               ; On                    ; On                    ;
+; Power-Up Don't Care                                              ; On                    ; On                    ;
+; Remove Redundant Logic Cells                                     ; Off                   ; Off                   ;
+; Remove Duplicate Registers                                       ; On                    ; On                    ;
+; Ignore CARRY Buffers                                             ; Off                   ; Off                   ;
+; Ignore CASCADE Buffers                                           ; Off                   ; Off                   ;
+; Ignore GLOBAL Buffers                                            ; Off                   ; Off                   ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                   ; Off                   ;
+; Ignore LCELL Buffers                                             ; Off                   ; Off                   ;
+; Ignore SOFT Buffers                                              ; On                    ; On                    ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                   ; Off                   ;
+; Optimization Technique                                           ; Balanced              ; Balanced              ;
+; Carry Chain Length                                               ; 70                    ; 70                    ;
+; Auto Carry Chains                                                ; On                    ; On                    ;
+; Auto Open-Drain Pins                                             ; On                    ; On                    ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                   ; Off                   ;
+; Auto ROM Replacement                                             ; On                    ; On                    ;
+; Auto RAM Replacement                                             ; On                    ; On                    ;
+; Auto DSP Block Replacement                                       ; On                    ; On                    ;
+; Auto Shift Register Replacement                                  ; Auto                  ; Auto                  ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                  ; Auto                  ;
+; Auto Clock Enable Replacement                                    ; On                    ; On                    ;
+; Strict RAM Replacement                                           ; Off                   ; Off                   ;
+; Allow Synchronous Control Signals                                ; On                    ; On                    ;
+; Force Use of Synchronous Clear Signals                           ; Off                   ; Off                   ;
+; Auto RAM Block Balancing                                         ; On                    ; On                    ;
+; Auto RAM to Logic Cell Conversion                                ; Off                   ; Off                   ;
+; Auto Resource Sharing                                            ; Off                   ; Off                   ;
+; Allow Any RAM Size For Recognition                               ; Off                   ; Off                   ;
+; Allow Any ROM Size For Recognition                               ; Off                   ; Off                   ;
+; Allow Any Shift Register Size For Recognition                    ; Off                   ; Off                   ;
+; Use LogicLock Constraints during Resource Balancing              ; On                    ; On                    ;
+; Ignore translate_off and synthesis_off directives                ; Off                   ; Off                   ;
+; Timing-Driven Synthesis                                          ; On                    ; On                    ;
+; Report Parameter Settings                                        ; On                    ; On                    ;
+; Report Source Assignments                                        ; On                    ; On                    ;
+; Report Connectivity Checks                                       ; On                    ; On                    ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                   ; Off                   ;
+; Synchronization Register Chain Length                            ; 2                     ; 2                     ;
+; Power Optimization During Synthesis                              ; Normal compilation    ; Normal compilation    ;
+; HDL message level                                                ; Level2                ; Level2                ;
+; Suppress Register Optimization Related Messages                  ; Off                   ; Off                   ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                  ; 5000                  ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                  ; 5000                  ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                   ; 100                   ;
+; Clock MUX Protection                                             ; On                    ; On                    ;
+; Auto Gated Clock Conversion                                      ; Off                   ; Off                   ;
+; Block Design Naming                                              ; Auto                  ; Auto                  ;
+; SDC constraint protection                                        ; Off                   ; Off                   ;
+; Synthesis Effort                                                 ; Auto                  ; Auto                  ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                    ; On                    ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                   ; Off                   ;
+; Analysis & Synthesis Message Level                               ; Medium                ; Medium                ;
+; Disable Register Merging Across Hierarchies                      ; Auto                  ; Auto                  ;
+; Resource Aware Inference For Block RAM                           ; On                    ; On                    ;
++------------------------------------------------------------------+-----------------------+-----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                                                           ; Library ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; DATA_BUFFERING_SYSTEM.vhd        ; yes             ; User VHDL File        ; C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd ;         ;
+; fifo_block.vhd                   ; yes             ; Auto-Found VHDL File  ; C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd            ;         ;
++----------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 493        ;
+;                                             ;            ;
+; Total combinational functions               ; 301        ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 169        ;
+;     -- 3 input functions                    ; 107        ;
+;     -- <=2 input functions                  ; 25         ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 301        ;
+;     -- arithmetic mode                      ; 0          ;
+;                                             ;            ;
+; Total registers                             ; 243        ;
+;     -- Dedicated logic registers            ; 243        ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 25         ;
+;                                             ;            ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; iclk~input ;
+; Maximum fan-out                             ; 206        ;
+; Total fan-out                               ; 1813       ;
+; Average fan-out                             ; 3.05       ;
++---------------------------------------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                              ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                     ; Entity Name           ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------------+--------------+
+; |DATA_BUFFERING_SYSTEM     ; 301 (50)            ; 243 (3)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |DATA_BUFFERING_SYSTEM                  ; DATA_BUFFERING_SYSTEM ; work         ;
+;    |FIFO_BLOCK:FIFO1|      ; 84 (84)             ; 80 (80)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO1 ; FIFO_BLOCK            ; work         ;
+;    |FIFO_BLOCK:FIFO2|      ; 84 (84)             ; 80 (80)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO2 ; FIFO_BLOCK            ; work         ;
+;    |FIFO_BLOCK:FIFO3|      ; 83 (83)             ; 80 (80)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO3 ; FIFO_BLOCK            ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; DOUT[0]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[1]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[2]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[3]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[4]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[5]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[6]$latch                                       ; DOUT[7]             ; yes                    ;
+; DOUT[7]$latch                                       ; DOUT[7]             ; yes                    ;
+; empty3                                              ; empty3              ; yes                    ;
+; empty2                                              ; empty2              ; yes                    ;
+; empty1                                              ; empty1              ; yes                    ;
+; FIFO_BLOCK:FIFO1|fifo_empty                         ; GND                 ; yes                    ;
+; FIFO_BLOCK:FIFO2|fifo_empty                         ; GND                 ; yes                    ;
+; FIFO_BLOCK:FIFO3|fifo_empty                         ; GND                 ; yes                    ;
+; FIFO_BLOCK:FIFO1|fifo_full                          ; GND                 ; yes                    ;
+; FIFO_BLOCK:FIFO2|fifo_full                          ; GND                 ; yes                    ;
+; FIFO_BLOCK:FIFO3|fifo_full                          ; GND                 ; yes                    ;
+; fill2                                               ; fill2               ; yes                    ;
+; fill3                                               ; fill3               ; yes                    ;
+; fill1                                               ; fill1               ; yes                    ;
+; Number of user-specified and inferred latches = 20  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; FIFO_BLOCK:FIFO3|DOUT[0]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[1]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[2]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[3]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[4]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[5]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[6]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO3|DOUT[7]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[0]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[1]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[2]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[3]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[4]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[5]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[6]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO2|DOUT[7]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[0]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[1]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[2]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[3]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[4]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[5]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[6]~en            ; Lost fanout                            ;
+; FIFO_BLOCK:FIFO1|DOUT[7]~en            ; Lost fanout                            ;
+; fill_done_demo2                        ; Stuck at VCC due to stuck port data_in ;
+; fill_done_demo1                        ; Stuck at VCC due to stuck port data_in ;
+; fill_done_demo3                        ; Stuck at VCC due to stuck port data_in ;
+; empty_done_demo2                       ; Stuck at VCC due to stuck port data_in ;
+; empty_done_demo1                       ; Stuck at VCC due to stuck port data_in ;
+; empty_done_demo3                       ; Stuck at VCC due to stuck port data_in ;
+; fill_done1                             ; Stuck at GND due to stuck port data_in ;
+; fill_done2                             ; Stuck at GND due to stuck port data_in ;
+; fill_done3                             ; Stuck at GND due to stuck port data_in ;
+; empty_done1                            ; Stuck at GND due to stuck port data_in ;
+; empty_done2                            ; Stuck at GND due to stuck port data_in ;
+; empty_done3                            ; Stuck at GND due to stuck port data_in ;
+; ready_to_empty~reg0                    ; Merged with ready_to_empty2            ;
+; Total Number of Removed Registers = 37 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                           ;
++------------------+---------------------------+----------------------------------------+
+; Register name    ; Reason for Removal        ; Registers Removed due to This Register ;
++------------------+---------------------------+----------------------------------------+
+; fill_done_demo2  ; Stuck at VCC              ; fill_done2                             ;
+;                  ; due to stuck port data_in ;                                        ;
+; fill_done_demo1  ; Stuck at VCC              ; fill_done1                             ;
+;                  ; due to stuck port data_in ;                                        ;
+; fill_done_demo3  ; Stuck at VCC              ; fill_done3                             ;
+;                  ; due to stuck port data_in ;                                        ;
+; empty_done_demo2 ; Stuck at VCC              ; empty_done2                            ;
+;                  ; due to stuck port data_in ;                                        ;
+; empty_done_demo1 ; Stuck at VCC              ; empty_done1                            ;
+;                  ; due to stuck port data_in ;                                        ;
+; empty_done_demo3 ; Stuck at VCC              ; empty_done3                            ;
+;                  ; due to stuck port data_in ;                                        ;
++------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 243   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 220   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DATA_BUFFERING_SYSTEM|ready_to_fill~reg0            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO1|DOUT[0]~reg0 ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO2|DOUT[6]~reg0 ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |DATA_BUFFERING_SYSTEM|FIFO_BLOCK:FIFO3|DOUT[6]~reg0 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |DATA_BUFFERING_SYSTEM|DOUT[1]                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 25                          ;
+; cycloneiii_ff         ; 243                         ;
+;     CLR               ; 22                          ;
+;     ENA               ; 217                         ;
+;     ENA CLR           ; 3                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 302                         ;
+;     normal            ; 302                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 107                         ;
+;         4 data inputs ; 169                         ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.52                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Wed Mar 24 15:09:16 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DATA_BUFFERING_SYSTEM -c DATA_BUFFERING_SYSTEM
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file data_buffering_system.vhd
+    Info (12022): Found design unit 1: DATA_BUFFERING_SYSTEM-behaviour File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 18
+    Info (12023): Found entity 1: DATA_BUFFERING_SYSTEM File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file data_buffering_system_tb.vhd
+    Info (12022): Found design unit 1: DATA_BUFFERING_SYSTEM_TB-bh File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM_TB.vhd Line: 9
+    Info (12023): Found entity 1: DATA_BUFFERING_SYSTEM_TB File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM_TB.vhd Line: 6
+Info (12127): Elaborating entity "DATA_BUFFERING_SYSTEM" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(115): signal "DOUT1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 115
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(130): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(130): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(130): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(141): signal "ready_to_fill2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 141
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(154): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(160): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 160
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(160): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 160
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(166): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(166): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(166): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(178): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 178
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(185): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(192): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(202): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 202
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(202): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 202
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(202): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 202
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(209): signal "data_bus_system_empty" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 209
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(211): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 211
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(222): signal "fill_done_demo1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 222
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(228): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 228
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(230): signal "fill_done1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 230
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(235): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(246): signal "fill_done_demo2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(252): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 252
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(254): signal "fill_done2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(259): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 259
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(270): signal "fill_done_demo3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 270
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(276): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 276
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(278): signal "fill_done3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 278
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(290): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 290
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(290): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 290
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(290): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 290
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(301): signal "ready_to_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 301
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(314): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 314
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(320): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 320
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(320): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 320
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(326): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(326): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(326): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(340): signal "empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 340
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(342): signal "DOUT1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 342
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(347): signal "empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 347
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(349): signal "DOUT2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 349
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(354): signal "empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 354
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(356): signal "DOUT3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 356
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(364): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 364
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(371): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 371
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(378): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 378
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(388): signal "fifo_full1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 388
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(388): signal "fifo_full2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 388
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(388): signal "fifo_full3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 388
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(395): signal "data_bus_system_full" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 395
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(397): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 397
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(408): signal "empty_done_demo1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 408
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(414): signal "fifo_empty1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 414
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(416): signal "empty_done1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 416
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(421): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 421
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(432): signal "empty_done_demo2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 432
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(438): signal "fifo_empty2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 438
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(440): signal "empty_done2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 440
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(445): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 445
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(456): signal "empty_done_demo3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 456
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(462): signal "fifo_empty3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 462
+Warning (10492): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(464): signal "empty_done3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 464
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "DOUT", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "fill1", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "fill2", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "fill3", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "data_bus_system_empty", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "fill_done", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "empty1", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "empty2", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "empty3", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "data_bus_system_full", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (10631): VHDL Process Statement warning at DATA_BUFFERING_SYSTEM.vhd(102): inferring latch(es) for signal or variable "empty_done", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "empty_done" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "data_bus_system_full" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "empty3" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "empty2" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "empty1" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "fill_done" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "data_bus_system_empty" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "fill3" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "fill2" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "fill1" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[0]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[1]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[2]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[3]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[4]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[5]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[6]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Info (10041): Inferred latch for "DOUT[7]" at DATA_BUFFERING_SYSTEM.vhd(102) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+Warning (12125): Using design file fifo_block.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: FIFO_BLOCK-behaviour File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 20
+    Info (12023): Found entity 1: FIFO_BLOCK File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 8
+Info (12128): Elaborating entity "FIFO_BLOCK" for hierarchy "FIFO_BLOCK:FIFO1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at fifo_block.vhd(63): signal "din_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at fifo_block.vhd(71): signal "din_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at fifo_block.vhd(89): signal "dout_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at fifo_block.vhd(97): signal "dout_address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 97
+Warning (10631): VHDL Process Statement warning at fifo_block.vhd(32): inferring latch(es) for signal or variable "fifo_full", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at fifo_block.vhd(32): inferring latch(es) for signal or variable "fifo_empty", which holds its previous value in one or more paths through the process File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 32
+Info (10041): Inferred latch for "fifo_empty" at fifo_block.vhd(32) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 32
+Info (10041): Inferred latch for "fifo_full" at fifo_block.vhd(32) File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 32
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[0]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[1]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[2]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[3]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[4]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[5]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[6]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO3|DOUT[7]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[0]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[1]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[2]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[3]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[4]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[5]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[6]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO2|DOUT[7]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[0]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[1]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[2]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[3]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[4]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[5]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[6]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13049): Converted tri-state buffer "FIFO_BLOCK:FIFO1|DOUT[7]" feeding internal logic into a wire File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+Warning (13012): Latch DOUT[0]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[1]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[2]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[3]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[4]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[5]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[6]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch DOUT[7]$latch has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal empty3 File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+Warning (13012): Latch empty3 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 42
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_full File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 15
+Warning (13012): Latch empty2 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 41
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_full File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 15
+Warning (13012): Latch empty1 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 40
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_full File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 15
+Warning (13012): Latch fill2 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 38
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_empty File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 16
+Warning (13012): Latch fill3 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_empty File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 16
+Warning (13012): Latch fill1 has unsafe behavior File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal FIFO_BLOCK:FIFO1|fifo_full File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 15
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "FIFO_BLOCK:FIFO2|dout_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO2|dout_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO2|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO2|dout_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO2|dout_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO2|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO3|dout_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO3|dout_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO3|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO3|dout_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO3|dout_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO3|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO1|dout_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO1|dout_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO1|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO1|dout_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO1|dout_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO1|dout_address[0]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 78
+    Warning (13310): Register "FIFO_BLOCK:FIFO1|din_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO1|din_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO1|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+    Warning (13310): Register "FIFO_BLOCK:FIFO1|din_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO1|din_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO1|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+    Warning (13310): Register "FIFO_BLOCK:FIFO2|din_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO2|din_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO2|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+    Warning (13310): Register "FIFO_BLOCK:FIFO2|din_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO2|din_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO2|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+    Warning (13310): Register "FIFO_BLOCK:FIFO3|din_address[3]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO3|din_address[3]~_emulated" and latch "FIFO_BLOCK:FIFO3|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+    Warning (13310): Register "FIFO_BLOCK:FIFO3|din_address[0]" is converted into an equivalent circuit using register "FIFO_BLOCK:FIFO3|din_address[0]~_emulated" and latch "FIFO_BLOCK:FIFO3|din_address[3]~1" File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/fifo_block.vhd Line: 52
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "fill_done" is stuck at GND File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 14
+    Warning (13410): Pin "empty_done" is stuck at GND File: C:/Users/mrico/OneDrive/Desktop/Embedded System Design Practices/DATA_BUFFERING_SYSTEM_OLD_5/DATA_BUFFERING_SYSTEM.vhd Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 518 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 493 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 153 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Wed Mar 24 15:09:35 2021
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:44
+
+

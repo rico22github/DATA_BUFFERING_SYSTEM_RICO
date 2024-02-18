@@ -1,0 +1,226 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity DATA_BUFFERING_SYSTEM_TB is 
+end entity;
+
+architecture bh of DATA_BUFFERING_SYSTEM_TB is
+
+	component DATA_BUFFERING_SYSTEM is
+		port(
+			iclk : in std_logic;
+			oclk : in std_logic;
+			fill_fifo : in std_logic;
+			reset : in std_logic;
+			empty_fifo : in std_logic;
+			DIN : in std_logic_vector(7 downto 0);
+			fill_done : out std_logic;
+			ready_to_fill : out std_logic;
+			ready_to_empty : out std_logic;
+			start_empty : out std_logic;
+			empty_done : out std_logic;
+			DOUT : out std_logic_vector(7 downto 0)
+		);
+	end component;
+	
+	signal fill_fifo : std_logic;
+	signal DIN : std_logic_vector(7 downto 0);
+	signal DOUT : std_logic_vector(7 downto 0);
+	signal iclk : std_logic;
+	signal oclk : std_logic;
+	signal reset : std_logic;
+	signal empty_fifo : std_logic;
+	signal ready_to_fill : std_logic;
+	signal fill_done : std_logic;
+	signal ready_to_empty : std_logic;
+	signal start_empty : std_logic;
+	signal empty_done : std_logic;
+
+	constant fast_period : time := 10 ns; -- iclk frequency is 100 MHz
+ 	constant slow_period : time := 40 ns; -- oclk frequency is 25 MHz
+	
+	
+	
+
+
+
+
+
+
+begin -- begin architecture description 
+
+uut: DATA_BUFFERING_SYSTEM
+		
+		Port map(
+			iclk => iclk,
+			oclk => oclk,
+			fill_fifo => fill_fifo,
+			reset => reset,
+			empty_fifo => empty_fifo,
+			DIN => DIN,
+			fill_done => fill_done, 
+			ready_to_fill => ready_to_fill,
+			ready_to_empty => ready_to_empty, 
+			start_empty => start_empty, 
+			empty_done => empty_done, 
+			DOUT => DOUT	
+		);
+
+	
+
+
+
+
+	apply_reset: process
+	begin
+		reset	<= '0';
+		wait for slow_period;
+		reset	<= '1';
+		wait for fast_period;
+		wait for fast_period;
+		reset	<= '0';
+		wait;
+	end process;
+
+	
+	
+	input_clock: process
+	begin
+		iclk	<= '0';
+		wait for fast_period;
+		iclk	<= '1';
+		wait for fast_period;
+	end process;
+	
+	output_clock: process
+	begin
+		oclk	<= '0';
+		wait for slow_period;
+		oclk	<= '1';
+		wait for slow_period;
+	end process;
+
+	
+	fill_dbs: process  -- fill data buffering system
+	variable val: integer := 0;
+	begin
+
+	for i in 1 to 5 loop 
+		wait for slow_period;
+	end loop;
+	
+	-- ****** send 8 bytes to data buffering system *****
+	wait until ready_to_fill = '1';
+ 	wait until iclk='1' and iclk'event;
+	fill_fifo <= '1';
+	wait until iclk='1' and iclk'event;
+	
+	for i in 1 to 8 loop 
+	DIN <= conv_std_logic_vector(val,8);
+	val := val+1;
+	wait until iclk='1' and iclk'event;
+	end loop;
+	
+	fill_fifo <= '0';
+	wait until fill_done = '1';
+ 	wait until iclk='1' and iclk'event;
+	-- ***** sending 8 bytes done ***** 
+	
+	-- ****** send 8 bytes to data buffering system *****
+	wait until ready_to_fill = '1';
+ 	wait until iclk='1' and iclk'event;
+	fill_fifo <= '1';
+	wait until iclk='1' and iclk'event;
+	
+	for i in 1 to 8 loop 
+		DIN <= conv_std_logic_vector(val,8);
+		val := val+1;
+		wait until iclk='1' and iclk'event;
+	end loop;
+	fill_fifo <= '0';
+	wait until fill_done = '1';
+ 	wait until iclk='1' and iclk'event;
+	-- ***** sending 8 bytes done *****
+
+
+
+
+
+
+
+
+
+
+
+
+
+	-- ****** send 8 bytes to data buffering system *****
+	wait until ready_to_fill = '1';
+ 	wait until iclk='1' and iclk'event;
+	fill_fifo <= '1';
+	wait until iclk='1' and iclk'event;
+	
+	for i in 1 to 8 loop 
+		DIN <= conv_std_logic_vector(val,8);
+		val := val+1;
+		wait until iclk='1' and iclk'event;
+	end loop;
+	fill_fifo <= '0';
+	wait until fill_done = '1';
+ 	wait until iclk='1' and iclk'event;
+	-- ***** sending 8 bytes done *****
+	for i in 1 to 5 loop 
+		wait for fast_period;
+	end loop;		
+	wait;
+	
+	end process;
+
+	empty_dbs: process -- empty data buffering system
+	begin
+	-- adjust the number of loop iterations to ensure all three FIFOs
+	-- are filled by fill_dbs process before we try to empty the FIFOs 
+	-- using the VHDL code given below
+	for i in 1 to 50 loop 
+		wait for fast_period;
+	end loop;	
+	-- note that DOUT does not need to be “read” explicitly
+	-- just display it on the simulation waveforms to verify 
+	-- that the emptied values and their sequence is the same
+	-- as filled values and their sequence
+
+	-- ****** empty 8 bytes from data buffering system *****
+	wait until ready_to_empty = '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '0';
+	wait until empty_done = '1';
+	-- ***** emptying 8 bytes done *****
+	
+	-- ****** empty 8 bytes from data buffering system *****
+	wait until ready_to_empty = '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '0';
+	wait until empty_done = '1';
+	-- ***** emptying 8 bytes done *****
+
+
+	-- ****** empty 8 bytes from data buffering system *****
+	wait until ready_to_empty = '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '1';
+	wait until oclk='1' and oclk'event;
+	empty_fifo <= '0';
+	wait until empty_done = '1';
+	-- ***** emptying 8 bytes done *****
+
+	wait;
+	end process;
+
+	
+end architecture; -- end architecture description
